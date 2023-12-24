@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoapp/models/todo.dart';
 import 'package:todoapp/providers/theme_provider.dart';
+import 'package:todoapp/screens/bmi_cal.dart';
 import 'package:todoapp/screens/widgets/search_box.dart';
 import 'package:todoapp/widget/todo_item.dart';
 
@@ -107,6 +108,26 @@ class _HomeState extends State<Home> {
               height: 20,
 
             ),
+            Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    elevation: 5
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=> const BMI_Cal())
+                    );
+                  },
+                  child: const Text('BMI CAL'),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+
             Expanded(child: ListView(
               children: [
                 //search box component
