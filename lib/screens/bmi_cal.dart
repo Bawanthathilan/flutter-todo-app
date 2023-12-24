@@ -14,7 +14,17 @@ class _BMI_CalState extends State<BMI_Cal> {
   late double BMI = calculateBMI(height: height, weight: weight);
 
   double calculateBMI({required int height , required int weight}){
-    return weight / (height*height);
+    return weight / (height*height) * 10000;
+  }
+
+   String getResult(bmiValue){
+    if(bmiValue >= 25){
+      return 'Overweight';
+    }else if(bmiValue > 18.5){
+      return "Normal";
+    }else{
+      return "Underweight";
+    }
   }
 
   @override
@@ -28,27 +38,48 @@ class _BMI_CalState extends State<BMI_Cal> {
             children: [
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: const [
-                        Icon(Icons.male , size: 150),
-                        Text("male" , style: TextStyle(
-                          fontSize: 30
-                        ),)
-                      ],
+                  GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      height: 250,
+                      width: 175,
+                      decoration: BoxDecoration(
+                          color: Colors.amberAccent.withAlpha(90),
+                        borderRadius: BorderRadius.circular(25)
+                      ),
+
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: const [
+                          Icon(Icons.male , size: 150),
+                          Text("male" , style: TextStyle(
+                            fontSize: 30
+                          ),)
+                        ],
+                      ),
                     ),
                   ),
                   Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: const [
-                        Icon(Icons.female , size: 150,),
-                        Text("Female" , style: TextStyle(
-                          fontSize: 30
-                        ),)
-                      ],
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      height: 250,
+                      width: 175,
+                      decoration: BoxDecoration(
+                          color: Colors.amberAccent.withAlpha(90),
+                          borderRadius: BorderRadius.circular(25)
+                      ),
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: const [
+                          Icon(Icons.female , size: 150,),
+                          Text("Female" , style: TextStyle(
+                            fontSize: 30
+                          ),)
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -161,12 +192,13 @@ class _BMI_CalState extends State<BMI_Cal> {
               Column(
                 children: [
                   Text("BMI"),
-                   Text("$BMI", style: TextStyle(
+                   Text(BMI.toStringAsFixed(2), style: TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
                       color: Colors.red
                   ),
                   ),
+                  Text(getResult(BMI)),
                 ],
               ),
             ],
