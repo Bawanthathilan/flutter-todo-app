@@ -5,7 +5,7 @@ import 'package:todoapp/providers/theme_provider.dart';
 class SearchBox extends StatelessWidget {
   final void Function(String) onFilter;
 
-  const SearchBox({Key? key , required this.onFilter}): super(key:key);
+  const SearchBox({Key? key, required this.onFilter}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +13,10 @@ class SearchBox extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: isDarkMode ? Colors.black : Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: isDarkMode ? Colors.white : Colors.black,
-          width: 1
-        )
-      ),
+          color: isDarkMode ? Colors.black : Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+              color: isDarkMode ? Colors.white : Colors.black, width: 1)),
       child: TextField(
         onChanged: onFilter,
         decoration: const InputDecoration(
@@ -28,9 +25,7 @@ class SearchBox extends StatelessWidget {
             Icons.search,
             size: 20,
           ),
-          prefixIconConstraints: BoxConstraints(
-            maxHeight: 20 , minWidth: 25
-          ),
+          prefixIconConstraints: BoxConstraints(maxHeight: 20, minWidth: 25),
           border: InputBorder.none,
           hintText: 'Search',
         ),

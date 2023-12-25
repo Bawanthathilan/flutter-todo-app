@@ -6,7 +6,12 @@ class TodoItem extends StatelessWidget {
   final void Function(Todo todo) updateTodo;
   final void Function(String id) deleteTodo;
 
-  const TodoItem({Key? key,required this.todo , required this.deleteTodo , required this.updateTodo}) : super(key: key);
+  const TodoItem(
+      {Key? key,
+      required this.todo,
+      required this.deleteTodo,
+      required this.updateTodo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,8 @@ class TodoItem extends StatelessWidget {
               todo.todoText,
               style: TextStyle(
                 fontSize: 16,
-                decoration: todo.isCompleted ? TextDecoration.lineThrough : null,
+                decoration:
+                    todo.isCompleted ? TextDecoration.lineThrough : null,
               ),
             ),
             subtitle: Text(todo.isCompleted ? "Completed" : "Todo"),
@@ -51,4 +57,3 @@ class TodoItem extends StatelessWidget {
     );
   }
 }
-

@@ -9,19 +9,18 @@ class AppTheme {
   static const _switchActiveColorDark = Colors.white;
 
   static final ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: const ColorScheme.light(
-      primary: _primaryColorLight,
-      background: _primaryColorLight,
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: _primaryColorLight,
-    ),
+      useMaterial3: true,
+      colorScheme: const ColorScheme.light(
+        primary: _primaryColorLight,
+        background: _primaryColorLight,
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: _primaryColorLight,
+      ),
       switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.all<Color>(_switchActiveColorLight),
-        trackOutlineColor: MaterialStateProperty.all<Color>(_switchActiveColorLight)
-  )
-  );
+          thumbColor: MaterialStateProperty.all<Color>(_switchActiveColorLight),
+          trackOutlineColor:
+              MaterialStateProperty.all<Color>(_switchActiveColorLight)));
 
   static final ThemeData DarkTheme = ThemeData(
       useMaterial3: true,
@@ -33,8 +32,8 @@ class AppTheme {
         backgroundColor: _primaryColorDark,
       ),
       switchTheme: SwitchThemeData(
-          thumbColor: MaterialStateProperty.all<Color>(AppTheme._switchActiveColorDark),
-          trackOutlineColor: MaterialStateProperty.all<Color>(_switchActiveColorDark)
-      )
-  );
+          thumbColor:
+              MaterialStateProperty.all<Color>(AppTheme._switchActiveColorDark),
+          trackOutlineColor:
+              MaterialStateProperty.all<Color>(_switchActiveColorDark)));
 }
